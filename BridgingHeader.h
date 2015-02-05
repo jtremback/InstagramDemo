@@ -9,6 +9,6 @@
 #ifndef InstagramDemo_BridgingHeader_h
 #define InstagramDemo_BridgingHeader_h
 
-#import <AFNetworking.h>
+//#import <AFNetworking/AFNetworking.h>
 
 #endif
