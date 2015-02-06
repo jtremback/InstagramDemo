@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bz7-0t-TjO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bz7-0t-TjO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Photos View Controller-->
@@ -20,16 +21,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.codepath.instacell" rowHeight="390" id="2CA-vP-oMZ" customClass="PhotoTableViewCell" customModule="InstagramDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="com.codepath.instacell" rowHeight="390" id="2CA-vP-oMZ" customClass="PhotoTableViewCell" customModule="InstagramDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2CA-vP-oMZ" id="rFQ-Gz-Mf2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mh8-AM-Nol">
-                                                    <rect key="frame" x="0.0" y="0.0" width="670" height="133.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mh8-AM-Nol">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="mh8-AM-Nol" secondAttribute="bottom" constant="-8.5" id="FgM-Y4-mVr"/>
+                                                <constraint firstAttribute="trailing" secondItem="mh8-AM-Nol" secondAttribute="trailing" id="ac0-5U-9AU"/>
+                                                <constraint firstItem="mh8-AM-Nol" firstAttribute="top" secondItem="rFQ-Gz-Mf2" secondAttribute="top" id="gU3-UT-EUD"/>
+                                                <constraint firstItem="mh8-AM-Nol" firstAttribute="leading" secondItem="rFQ-Gz-Mf2" secondAttribute="leading" id="u5M-QT-p4i"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photoImageView" destination="mh8-AM-Nol" id="rYD-A9-dkk"/>
@@ -50,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1187" y="276"/>
+            <point key="canvasLocation" x="1622" y="276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qKH-ow-Hw9">

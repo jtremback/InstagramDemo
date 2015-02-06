@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FE2264EB-F0DC-411E-A90C-47CB91215F42</string>
+	<string>D4E5C425-DD40-47E6-B681-FD34727D8F16</string>
 	<key>IDESourceControlProjectName</key>
 	<string>InstagramDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CD730445D89E325630854F2B80279D69BCA3F5AD</key>
-		<string>github.com:newtonry/InstagramDemo.git</string>
+		<string>https://github.com/jtremback/InstagramDemo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>InstagramDemo.xcworkspace</string>
@@ -21,7 +21,7 @@
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:newtonry/InstagramDemo.git</string>
+	<string>https://github.com/jtremback/InstagramDemo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>

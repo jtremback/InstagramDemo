@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A0849A4CB805C384FF86405</key>
+		<key>534E278E08AAB65C91AE0D76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21605EFE6F8B73676ABAADF0</key>
+		<key>677B692748D49F8D8EEF5C86</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A3A81C746CFDBBFC0EDC52D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

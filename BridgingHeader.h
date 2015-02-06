@@ -10,6 +10,7 @@
 #define InstagramDemo_BridgingHeader_h
 
 //#import "<AFNetworking/AFNetworking.h>"
-#import <UIImageView+AFNetworking.h>
+#import "AFNetworking/UIImageView+AFNetworking.h"
+//#import "SwiftyJSON/SwiftyJSON.swift"
 
 #endif
