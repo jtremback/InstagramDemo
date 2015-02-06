@@ -7,13 +7,15 @@
 //
 import UIKit
 import SwiftyJSON
+import Alamofire
 
 class PhotosViewController: UIViewController {
+  @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var errorLabel: UILabel!
   var photos: NSArray!
   var isError = false
-  @IBOutlet weak var tableView: UITableView!
   var refreshControl: UIRefreshControl!
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -44,8 +46,7 @@ class PhotosViewController: UIViewController {
     )
 
     dispatch_after(startTime, dispatch_get_main_queue()) { () -> Void in
-      self.isError = true
-      self.tableView.reloadData()
+      self.errorLabel.hidden = false
     }
 
     var request = NSURLRequest(URL: url)
@@ -54,7 +55,7 @@ class PhotosViewController: UIViewController {
       queue: NSOperationQueue.mainQueue()
     ) {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
       if error != nil {
-        self.isError = true
+        self.errorLabel.hidden = false
       } else {
         var responseDictionary = NSJSONSerialization.JSONObjectWithData(
           data,
@@ -62,6 +63,7 @@ class PhotosViewController: UIViewController {
           error: nil
         ) as NSDictionary
         
+
         self.photos = responseDictionary["data"] as NSArray
         self.tableView.reloadData()
         self.refreshControl.endRefreshing()
@@ -69,12 +71,11 @@ class PhotosViewController: UIViewController {
     }
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  func displayErrorMessage () {
+    errorLabel.hidden = false
   }
-  
-  func tableView(
+
+  func tableView (
     tableView: UITableView,
     numberOfRowsInSection section: Int
   ) -> Int {
@@ -83,17 +84,6 @@ class PhotosViewController: UIViewController {
     }
     return 1
   }
-
-//  func tableView(
-//    tableView: UITableView,
-//    titleForHeaderInSection section: Int
-//  ) -> String? {
-//    return "Section \(section)"
-//  }
-
-//  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//    return 10
-//  }
 
   func tableView(
     tableView: UITableView,
