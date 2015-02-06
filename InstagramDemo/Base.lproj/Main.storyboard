@@ -27,6 +27,18 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2CA-vP-oMZ" id="rFQ-Gz-Mf2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilM-u3-1Ad">
+                                                    <rect key="frame" x="52" y="167" width="190" height="55"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qy-hJ-m8D">
+                                                            <rect key="frame" x="20" y="2" width="221" height="51"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mh8-AM-Nol">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="390"/>
                                                 </imageView>
@@ -40,6 +52,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photoImageView" destination="mh8-AM-Nol" id="rYD-A9-dkk"/>
+                                            <outlet property="rowLabel" destination="0Qy-hJ-m8D" id="GNi-Rs-q6k"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -50,14 +63,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cuK-ZO-mhp"/>
+                    <navigationItem key="navigationItem" id="cuK-ZO-mhp">
+                        <barButtonItem key="rightBarButtonItem" id="Vej-TY-fKr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="krb-8o-CJ7">
+                                <rect key="frame" x="344" y="167" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="QWa-tZ-WJA" id="nrC-am-WRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="276"/>
+            <point key="canvasLocation" x="1498" y="416"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qKH-ow-Hw9">

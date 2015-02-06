@@ -10,13 +10,12 @@ import SwiftyJSON
 
 class PhotosViewController: UIViewController {
   var photos: NSArray!
+  var isError = false
   @IBOutlet weak var tableView: UITableView!
   var refreshControl: UIRefreshControl!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-//    tableView.dataSource = self
-//    tableView.rowHeight = 320
 
     refreshControl = UIRefreshControl()
     refreshControl.addTarget(
@@ -38,26 +37,38 @@ class PhotosViewController: UIViewController {
       string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)"
     )!
 
+    let delayInSeconds = 2.0
+    let startTime = dispatch_time(
+      DISPATCH_TIME_NOW,
+      Int64(delayInSeconds * Double(NSEC_PER_SEC))
+    )
+
+    dispatch_after(startTime, dispatch_get_main_queue()) { () -> Void in
+      self.isError = true
+      self.tableView.reloadData()
+    }
+
     var request = NSURLRequest(URL: url)
     NSURLConnection.sendAsynchronousRequest(
       request,
       queue: NSOperationQueue.mainQueue()
-    ) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-      var responseDictionary = NSJSONSerialization.JSONObjectWithData(
-        data,
-        options: nil,
-        error: nil
-      ) as NSDictionary
-      
-      self.photos = responseDictionary["data"] as NSArray
-      self.tableView.reloadData()
-      self.refreshControl.endRefreshing()
+    ) {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+      if error != nil {
+        self.isError = true
+      } else {
+        var responseDictionary = NSJSONSerialization.JSONObjectWithData(
+          data,
+          options: nil,
+          error: nil
+        ) as NSDictionary
+        
+        self.photos = responseDictionary["data"] as NSArray
+        self.tableView.reloadData()
+        self.refreshControl.endRefreshing()
+      }
     }
   }
-  
-  
-  
-  
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -67,20 +78,23 @@ class PhotosViewController: UIViewController {
     tableView: UITableView,
     numberOfRowsInSection section: Int
   ) -> Int {
-    return 10
+    if let photos = self.photos {
+      return photos.count
+    }
+    return 1
   }
-  
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 10
-  }
-  
-  func tableView(
-    tableView: UITableView,
-    titleForHeaderInSection section: Int
-  ) -> String? {
-    return "Section \(section)"
-  }
-  
+
+//  func tableView(
+//    tableView: UITableView,
+//    titleForHeaderInSection section: Int
+//  ) -> String? {
+//    return "Section \(section)"
+//  }
+
+//  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//    return 10
+//  }
+
   func tableView(
     tableView: UITableView,
     cellForRowAtIndexPath indexPath: NSIndexPath
@@ -96,8 +110,13 @@ class PhotosViewController: UIViewController {
       )
       
       cell.photoImageView.setImageWithURL(url)
+      cell.rowLabel.text = "Row: \(indexPath.row)"
     }
-    
+
+    if (self.isError) {
+      cell.rowLabel.text = "Fuck"
+    }
+
     return cell
   }
 }
