@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		4514FD331A831C2A0027B1B0 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514FD321A831C2A0027B1B0 /* PhotosViewController.swift */; };
 		459BB8721A83165800151851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459BB8711A83165800151851 /* AppDelegate.swift */; };
-		459BB8741A83165800151851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459BB8731A83165800151851 /* ViewController.swift */; };
 		459BB8771A83165800151851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 459BB8751A83165800151851 /* Main.storyboard */; };
 		459BB8791A83165800151851 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459BB8781A83165800151851 /* Images.xcassets */; };
 		459BB87C1A83165800151851 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 459BB87A1A83165800151851 /* LaunchScreen.xib */; };
 		459BB8881A83165800151851 /* InstagramDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459BB8871A83165800151851 /* InstagramDemoTests.swift */; };
 		651CA6BA680AA6BEE3ED3F83 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B8558CBDE6451B37D08797F /* libPods.a */; };
+		C5B94B901A832562003E7E11 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B94B8F1A832562003E7E11 /* PhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +34,6 @@
 		459BB86C1A83165800151851 /* InstagramDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459BB8701A83165800151851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459BB8711A83165800151851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		459BB8731A83165800151851 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		459BB8761A83165800151851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		459BB8781A83165800151851 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		459BB87B1A83165800151851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -42,6 +41,7 @@
 		459BB8861A83165800151851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459BB8871A83165800151851 /* InstagramDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramDemoTests.swift; sourceTree = "<group>"; };
 		C2ADBF74313711A0F65C8C4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C5B94B8F1A832562003E7E11 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		FBD6154E453B6B845CC01E24 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				459BB8711A83165800151851 /* AppDelegate.swift */,
-				459BB8731A83165800151851 /* ViewController.swift */,
+				C5B94B8F1A832562003E7E11 /* PhotoTableViewCell.swift */,
 				459BB8751A83165800151851 /* Main.storyboard */,
 				4514FD321A831C2A0027B1B0 /* PhotosViewController.swift */,
 				459BB8781A83165800151851 /* Images.xcassets */,
@@ -276,8 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B94B901A832562003E7E11 /* PhotoTableViewCell.swift in Sources */,
 				4514FD331A831C2A0027B1B0 /* PhotosViewController.swift in Sources */,
-				459BB8741A83165800151851 /* ViewController.swift in Sources */,
 				459BB8721A83165800151851 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = InstagramDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = BridgingHeader.h;
@@ -415,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = InstagramDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = BridgingHeader.h;

@@ -11,9 +11,14 @@ import UIKit
 class PhotosViewController: UIViewController {
     var photos: NSArray!
     @IBOutlet weak var tableView: UITableView!
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = 320
+        
         
         var clientId = "ef9cb306bc39451d9d0ef2ba3c1b9584"
         
@@ -24,7 +29,6 @@ class PhotosViewController: UIViewController {
             self.photos = responseDictionary["data"] as NSArray
             self.tableView.reloadData()
             
-            println("response: \(self.photos)")
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -47,8 +51,23 @@ class PhotosViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
-        cell.textLabel?.text = "Row \(indexPath.row)"
+        var cell = tableView.dequeueReusableCellWithIdentifier("com.codepath.instacell") as PhotoTableViewCell
+
+        if (photos != nil) {
+            if let post = photos[indexPath.row] as? NSDictionary {
+                if let images = post["images"] as? NSDictionary {
+                    if let standardRes = images["standard_resolution"] as? NSDictionary {
+                        if let urlString = standardRes["url"] as? NSString {
+                            if let url = NSURL(string: urlString) {
+                                
+                                cell.photoImageView.setImageWithURL(url)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         return cell
     }
 }
