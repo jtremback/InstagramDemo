@@ -9,11 +9,18 @@ import UIKit
 import SwiftyJSON
 import Alamofire
 
+// Patch SwiftyJSON to support constructing a JSON out of [JSON]
+extension JSON {
+     public init(_ jsonArray:[JSON]) {
+        self.init(jsonArray.map { $0.object })
+    }
+}
+
 class PhotosViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var errorLabel: UILabel!
-  var photos: NSArray!
-  var isError = false
+
+  var json: JSON!
   var refreshControl: UIRefreshControl!
 
   override func viewDidLoad() {
@@ -34,40 +41,28 @@ class PhotosViewController: UIViewController {
   }
 
   func fetchStories() {
-    var clientId = "ef9cb306bc39451d9d0ef2ba3c1b9584"
-    var url = NSURL(
-      string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)"
-    )!
+    let clientId = "ef9cb306bc39451d9d0ef2ba3c1b9584"
 
-    let delayInSeconds = 2.0
-    let startTime = dispatch_time(
-      DISPATCH_TIME_NOW,
-      Int64(delayInSeconds * Double(NSEC_PER_SEC))
-    )
-
-    dispatch_after(startTime, dispatch_get_main_queue()) { () -> Void in
-      self.errorLabel.hidden = false
-    }
-
-    var request = NSURLRequest(URL: url)
-    NSURLConnection.sendAsynchronousRequest(
-      request,
-      queue: NSOperationQueue.mainQueue()
-    ) {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-      if error != nil {
+    let request = Alamofire.request(
+      .GET,
+      "https://api.instagram.com/v1/media/popular?client_id=\(clientId)",
+      parameters: ["client_id": clientId]
+    ).response { (req, res, json, err) in
+      if err != nil {
         self.errorLabel.hidden = false
       } else {
-        var responseDictionary = NSJSONSerialization.JSONObjectWithData(
-          data,
+        self.errorLabel.hidden = true
+        if let json = NSJSONSerialization.JSONObjectWithData(
+          json as NSData,
           options: nil,
           error: nil
-        ) as NSDictionary
-        
-
-        self.photos = responseDictionary["data"] as NSArray
-        self.tableView.reloadData()
-        self.refreshControl.endRefreshing()
+        ) as? NSDictionary {
+          self.json = JSON(json)
+          self.tableView.reloadData()
+        }
       }
+
+      self.refreshControl.endRefreshing()
     }
   }
 
@@ -79,10 +74,10 @@ class PhotosViewController: UIViewController {
     tableView: UITableView,
     numberOfRowsInSection section: Int
   ) -> Int {
-    if let photos = self.photos {
-      return photos.count
+    if let json = self.json {
+      return json["data"].arrayValue.count
     }
-    return 1
+    return 0
   }
 
   func tableView(
@@ -93,18 +88,15 @@ class PhotosViewController: UIViewController {
       "com.codepath.instacell"
     ) as PhotoTableViewCell
     
-    if (photos != nil) {
-      let json = JSON(photos)
-      let url = NSURL(
-        string: json[indexPath.row]["images"]["standard_resolution"]["url"].stringValue
-      )
-      
-      cell.photoImageView.setImageWithURL(url)
-      cell.rowLabel.text = "Row: \(indexPath.row)"
-    }
+    if let json = json {
+      let string = json["data"][indexPath.row]["images"]["standard_resolution"]["url"].stringValue
 
-    if (self.isError) {
-      cell.rowLabel.text = "Fuck"
+      let url = NSURL(
+        string: string
+      )
+
+      cell.photoImageView.setImageWithURL(url, placeholderImage: UIImage(named: "Placeholder"))
+      cell.rowLabel.text = "Row: \(indexPath.row)"
     }
 
     return cell
