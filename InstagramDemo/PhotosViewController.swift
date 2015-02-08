@@ -46,11 +46,14 @@ class PhotosViewController: UIViewController {
     self.loadingIndicator.startAnimating()
     self.loadingIndicator.hidden = false
 
-    let clientId = "ef9cb306bc39451d9d0ef2ba3c1b9584"
     let request = Alamofire.request(
       .GET,
-      "https://api.instagram.com/v1/media/popular?client_id=\(clientId)",
-      parameters: ["client_id": clientId]
+      "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json",
+      parameters: [
+        "apikey": "e2evqmpxp9upphtv3xf8jsmd",
+        "limt": 16,
+        "country": "us"
+      ]
     ).response { (req, res, json, err) in
       if err != nil {
         self.errorLabel.hidden = false
@@ -61,6 +64,7 @@ class PhotosViewController: UIViewController {
           options: nil,
           error: nil
         ) as? NSDictionary {
+          println(json)
           self.json = JSON(json)
           self.tableView.reloadData()
         }
@@ -82,7 +86,7 @@ class PhotosViewController: UIViewController {
     numberOfRowsInSection section: Int
   ) -> Int {
     if let json = self.json {
-      return json["data"].arrayValue.count
+      return json["movies"].arrayValue.count
     }
     return 0
   }
@@ -96,11 +100,25 @@ class PhotosViewController: UIViewController {
     ) as PhotoTableViewCell
     
     if let json = json {
-      let string = json["data"][indexPath.row]["images"]["standard_resolution"]["url"].stringValue
-
       let url = NSURL(
-        string: string
+        string: json["movies"][indexPath.row]["posters"]["thumbnail"].stringValue
       )
+
+      let jsonRow = json["movies"][indexPath.row]
+
+      cell.blurbLabel.text = jsonRow["synopsis"].stringValue
+      cell.titleLabel.text = jsonRow["title"].stringValue
+
+      let viewersRating = jsonRow["ratings"]["audience_score"].stringValue
+      cell.viewersRating.text = "\(viewersRating)%"
+
+      let criticsRating = jsonRow["ratings"]["critics_score"].stringValue
+      cell.criticsRating.text = "\(criticsRating)%"
+
+      let mpaaRating = jsonRow["mpaa_rating"].stringValue
+      let runTime = jsonRow["runtime"].stringValue
+      let year = jsonRow["year"].stringValue
+      cell.infoLabel.text = "\(year) • \(mpaaRating) • \(runTime) min"
 
       cell.photoImageView.setImageWithURL(url, placeholderImage: UIImage(named: "Placeholder"))
     }
