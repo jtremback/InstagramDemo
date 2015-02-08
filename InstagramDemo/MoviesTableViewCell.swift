@@ -1,5 +1,5 @@
 //
-//  PhotoTableViewCell.swift
+//  MoviesTableViewCell.swift
 //  InstagramDemo
 //
 //  Created by Ryan Newton on 2/4/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotoTableViewCell: UITableViewCell {
+class MoviesTableViewCell: UITableViewCell {
   @IBOutlet weak var photoImageView: UIImageView!
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var infoLabel: UILabel!
