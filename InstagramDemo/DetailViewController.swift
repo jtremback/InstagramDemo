@@ -15,11 +15,43 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var blurbLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var mainView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentSize = CGSizeMake(320, 1000);
 
+//        scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
+//        mainView.setTranslatesAutoresizingMaskIntoConstraints(false)
+//        let viewsDict = [
+//            "scrollView": scrollView,
+//            "mainView": mainView
+//        ]
+//
+//        func addConstraints (constraint: String) {
+//            self.view.addConstraints(
+//                NSLayoutConstraint.constraintsWithVisualFormat(
+//                    constraint, options: nil, metrics: nil, views: viewsDict
+//                )
+//            )
+//        }
+//
+//        addConstraints("")
+
+//        self.view.addConstraints(
+//          NSLayoutConstraint.constraintsWithVisualFormat(
+//          "H:|-[myLabel]-|", options: nil, metrics: nil, views: viewsDict))
+//
+//        self.view.addConstraints(
+//          NSLayoutConstraint.constraintsWithVisualFormat(
+//          "H:|-[myButton]-|",
+//          options: nil, metrics: nil, views: viewsDict)) 
+//
+//        self.view.addConstraints(
+//          NSLayoutConstraint.constraintsWithVisualFormat(
+//          "V:|-[myLabel]-[myButton]-|", options: nil, metrics: nil, 
+//          views: viewsDict))
+
+        scrollView.contentSize = CGSizeMake(0, 1000);
         if let jsonRow = self.jsonRow? {
 
             self.blurbLabel.text = jsonRow["synopsis"].stringValue
