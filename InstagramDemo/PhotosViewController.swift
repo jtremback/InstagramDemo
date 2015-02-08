@@ -19,6 +19,8 @@ extension JSON {
 class PhotosViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var errorLabel: UILabel!
+  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+
 
   var json: JSON!
   var refreshControl: UIRefreshControl!
@@ -41,8 +43,10 @@ class PhotosViewController: UIViewController {
   }
 
   func fetchStories() {
-    let clientId = "ef9cb306bc39451d9d0ef2ba3c1b9584"
+    self.loadingIndicator.startAnimating()
+    self.loadingIndicator.hidden = false
 
+    let clientId = "ef9cb306bc39451d9d0ef2ba3c1b9584"
     let request = Alamofire.request(
       .GET,
       "https://api.instagram.com/v1/media/popular?client_id=\(clientId)",
@@ -61,6 +65,9 @@ class PhotosViewController: UIViewController {
           self.tableView.reloadData()
         }
       }
+
+      self.loadingIndicator.stopAnimating()
+      self.loadingIndicator.hidden = true
 
       self.refreshControl.endRefreshing()
     }
@@ -96,7 +103,6 @@ class PhotosViewController: UIViewController {
       )
 
       cell.photoImageView.setImageWithURL(url, placeholderImage: UIImage(named: "Placeholder"))
-      cell.rowLabel.text = "Row: \(indexPath.row)"
     }
 
     return cell
