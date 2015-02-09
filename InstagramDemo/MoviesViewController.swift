@@ -48,6 +48,7 @@ class MoviesViewController: UIViewController {
         println(rgb.toArray()[0])
 
         refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.whiteColor()
         refreshControl.addTarget(
             self,
             action: "fetchStories",
@@ -116,7 +117,9 @@ class MoviesViewController: UIViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier(
             "com.codepath.instacell"
         ) as MoviesTableViewCell
-        
+
+        cell.imageLoadingIndicator.startAnimating()
+
         if let json = json {
             let jsonRow = json["movies"][indexPath.row]
 

@@ -15,6 +15,7 @@ class MoviesTableViewCell: UITableViewCell {
   @IBOutlet weak var viewersRating: UILabel!
   @IBOutlet weak var criticsRating: UILabel!
   @IBOutlet weak var blurbLabel: UILabel!
+  @IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
 
   override func awakeFromNib() {
     super.awakeFromNib()

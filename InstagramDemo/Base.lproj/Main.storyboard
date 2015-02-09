@@ -9,7 +9,7 @@
         <!--Rotten Tomatoes-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MoviesViewController" customModule="InstagramDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MoviesViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -36,13 +36,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="com.codepath.instacell" id="2CA-vP-oMZ" customClass="MoviesTableViewCell" customModule="InstagramDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="com.codepath.instacell" id="2CA-vP-oMZ" customClass="MoviesTableViewCell" customModule="RottenTomatoes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2CA-vP-oMZ" id="rFQ-Gz-Mf2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Mxd-HS-7gN">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Mxd-HS-7gN">
                                                     <rect key="frame" x="31" y="50" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mh8-AM-Nol">
@@ -150,6 +150,7 @@
                                         <connections>
                                             <outlet property="blurbLabel" destination="Ppz-FG-Rh1" id="NpP-yI-461"/>
                                             <outlet property="criticsRating" destination="m3G-GE-kce" id="J0X-RT-5UL"/>
+                                            <outlet property="imageLoadingIndicator" destination="Mxd-HS-7gN" id="sDr-bm-Aba"/>
                                             <outlet property="infoLabel" destination="Y0C-xA-2GX" id="IvL-u9-4Kb"/>
                                             <outlet property="photoImageView" destination="mh8-AM-Nol" id="rYD-A9-dkk"/>
                                             <outlet property="titleLabel" destination="ZR0-wC-MzJ" id="sAv-yK-Q0G"/>
@@ -191,7 +192,7 @@
         <!--Detail View Controller-->
         <scene sceneID="yhX-QY-Cv4">
             <objects>
-                <viewController id="m1M-ca-C8A" customClass="DetailViewController" customModule="InstagramDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="m1M-ca-C8A" customClass="DetailViewController" customModule="RottenTomatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vg6-MC-Vcq"/>
                         <viewControllerLayoutGuide type="bottom" id="Kke-rf-9MY"/>
@@ -327,24 +328,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2212" y="447"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="pxW-an-GBa">
-            <objects>
-                <viewController id="aj6-Xh-18w" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ho4-hA-uUG"/>
-                        <viewControllerLayoutGuide type="bottom" id="qQ9-rR-PeS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hkm-0m-iTV">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6YF-9F-taY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2878" y="447"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qKH-ow-Hw9">
