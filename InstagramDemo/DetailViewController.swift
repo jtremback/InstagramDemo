@@ -9,64 +9,53 @@
 import UIKit
 import SwiftyJSON
 
+
 class DetailViewController: UIViewController {
     var jsonRow: JSON?
 
     @IBOutlet weak var blurbLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var mainView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var criticsRating: UILabel!
+    @IBOutlet weak var viewersRating: UILabel!
+    @IBOutlet weak var infoHeight: NSLayoutConstraint!
+
+    var infoExpanded = false
+    @IBAction func infoTapped(sender: AnyObject) {
+        if (infoExpanded) {
+            self.infoHeight.constant = 120.0
+            infoExpanded = false
+            UIView.animateWithDuration(0.2, animations: {
+                self.mainView.layoutIfNeeded()
+            })
+        } else {
+            self.infoHeight.constant = 300.0
+            infoExpanded = true
+            UIView.animateWithDuration(0.2, animations: {
+                self.mainView.layoutIfNeeded()
+            })
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        scrollView.setTranslatesAutoresizingMaskIntoConstraints(false)
-//        mainView.setTranslatesAutoresizingMaskIntoConstraints(false)
-//        let viewsDict = [
-//            "scrollView": scrollView,
-//            "mainView": mainView
-//        ]
-//
-//        func addConstraints (constraint: String) {
-//            self.view.addConstraints(
-//                NSLayoutConstraint.constraintsWithVisualFormat(
-//                    constraint, options: nil, metrics: nil, views: viewsDict
-//                )
-//            )
-//        }
-//
-//        addConstraints("")
-
-//        self.view.addConstraints(
-//          NSLayoutConstraint.constraintsWithVisualFormat(
-//          "H:|-[myLabel]-|", options: nil, metrics: nil, views: viewsDict))
-//
-//        self.view.addConstraints(
-//          NSLayoutConstraint.constraintsWithVisualFormat(
-//          "H:|-[myButton]-|",
-//          options: nil, metrics: nil, views: viewsDict)) 
-//
-//        self.view.addConstraints(
-//          NSLayoutConstraint.constraintsWithVisualFormat(
-//          "V:|-[myLabel]-[myButton]-|", options: nil, metrics: nil, 
-//          views: viewsDict))
-
-        scrollView.contentSize = CGSizeMake(0, 1000);
         if let jsonRow = self.jsonRow? {
 
             self.blurbLabel.text = jsonRow["synopsis"].stringValue
-//            self.titleLabel.text = jsonRow["title"].stringValue
-//
-//            let viewersRating = jsonRow["ratings"]["audience_score"].stringValue
-//            self.viewersRating.text = "\(viewersRating)%"
-//
-//            let criticsRating = jsonRow["ratings"]["critics_score"].stringValue
-//            self.criticsRating.text = "\(criticsRating)%"
-//
-//            let mpaaRating = jsonRow["mpaa_rating"].stringValue
-//            let runTime = jsonRow["runtime"].stringValue
-//            let year = jsonRow["year"].stringValue
-//            self.infoLabel.text = "\(year) • \(mpaaRating) • \(runTime) min"
+            self.titleLabel.text = jsonRow["title"].stringValue
+
+            let viewersRating = jsonRow["ratings"]["audience_score"].stringValue
+            self.viewersRating.text = "\(viewersRating)%"
+
+            let criticsRating = jsonRow["ratings"]["critics_score"].stringValue
+            self.criticsRating.text = "\(criticsRating)%"
+
+            let mpaaRating = jsonRow["mpaa_rating"].stringValue
+            let runTime = jsonRow["runtime"].stringValue
+            let year = jsonRow["year"].stringValue
+            self.infoLabel.text = "\(year) • \(mpaaRating) • \(runTime) min"
 
             let thumbnailUrl = jsonRow["posters"]["thumbnail"].stringValue
             // Replace tmb with ori to get full size image

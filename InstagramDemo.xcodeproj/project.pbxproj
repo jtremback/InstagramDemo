@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4514FD331A831C2A0027B1B0 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514FD321A831C2A0027B1B0 /* MoviesViewController.swift */; };
+		45239ED21A882F6C00343016 /* labColors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45239ED11A882F6C00343016 /* labColors.cpp */; };
+		45239ED41A8837B300343016 /* color-convert-0.5.1.js in Resources */ = {isa = PBXBuildFile; fileRef = 45239ED31A8837B300343016 /* color-convert-0.5.1.js */; };
 		459BB8721A83165800151851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459BB8711A83165800151851 /* AppDelegate.swift */; };
 		459BB8771A83165800151851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 459BB8751A83165800151851 /* Main.storyboard */; };
 		459BB8791A83165800151851 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459BB8781A83165800151851 /* Images.xcassets */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		4514FD311A831A000027B1B0 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		4514FD321A831C2A0027B1B0 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		45239ED11A882F6C00343016 /* labColors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = labColors.cpp; sourceTree = "<group>"; };
+		45239ED31A8837B300343016 /* color-convert-0.5.1.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "color-convert-0.5.1.js"; path = "../color-convert-0.5.1.js"; sourceTree = "<group>"; };
 		459BB86C1A83165800151851 /* InstagramDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		459BB8701A83165800151851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459BB8711A83165800151851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 		459BB86E1A83165800151851 /* InstagramDemo */ = {
 			isa = PBXGroup;
 			children = (
+				45239ED31A8837B300343016 /* color-convert-0.5.1.js */,
 				459BB8711A83165800151851 /* AppDelegate.swift */,
 				45EE2EB01A87373D00D7D47E /* DetailViewController.swift */,
 				C5B94B8F1A832562003E7E11 /* MoviesTableViewCell.swift */,
@@ -98,6 +103,7 @@
 				459BB8781A83165800151851 /* Images.xcassets */,
 				459BB87A1A83165800151851 /* LaunchScreen.xib */,
 				459BB86F1A83165800151851 /* Supporting Files */,
+				45239ED11A882F6C00343016 /* labColors.cpp */,
 			);
 			path = InstagramDemo;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				459BB8771A83165800151851 /* Main.storyboard in Resources */,
+				45239ED41A8837B300343016 /* color-convert-0.5.1.js in Resources */,
 				459BB87C1A83165800151851 /* LaunchScreen.xib in Resources */,
 				459BB8791A83165800151851 /* Images.xcassets in Resources */,
 			);
@@ -298,6 +305,7 @@
 				C5B94B901A832562003E7E11 /* MoviesTableViewCell.swift in Sources */,
 				4514FD331A831C2A0027B1B0 /* MoviesViewController.swift in Sources */,
 				459BB8721A83165800151851 /* AppDelegate.swift in Sources */,
+				45239ED21A882F6C00343016 /* labColors.cpp in Sources */,
 				45EE2EB11A87373D00D7D47E /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,11 +430,14 @@
 			baseConfigurationReference = FBD6154E453B6B845CC01E24 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = InstagramDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "InstagramDemo/InstagramDemo-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = BridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -435,10 +446,12 @@
 			baseConfigurationReference = C2ADBF74313711A0F65C8C4C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = InstagramDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "InstagramDemo/InstagramDemo-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = BridgingHeader.h;
 			};
 			name = Release;
