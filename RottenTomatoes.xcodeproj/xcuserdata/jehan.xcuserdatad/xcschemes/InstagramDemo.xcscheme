@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "459BB86B1A83165800151851"
-               BuildableName = "InstagramDemo.app"
-               BlueprintName = "InstagramDemo"
-               ReferencedContainer = "container:InstagramDemo.xcodeproj">
+               BuildableName = "RottenTomatoes.app"
+               BlueprintName = "RottenTomatoes"
+               ReferencedContainer = "container:RottenTomatoes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "459BB8801A83165800151851"
-               BuildableName = "InstagramDemoTests.xctest"
-               BlueprintName = "InstagramDemoTests"
-               ReferencedContainer = "container:InstagramDemo.xcodeproj">
+               BuildableName = "RottenTomatoesTests.xctest"
+               BlueprintName = "RottenTomatoesTests"
+               ReferencedContainer = "container:RottenTomatoes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "459BB8801A83165800151851"
-               BuildableName = "InstagramDemoTests.xctest"
-               BlueprintName = "InstagramDemoTests"
-               ReferencedContainer = "container:InstagramDemo.xcodeproj">
+               BuildableName = "RottenTomatoesTests.xctest"
+               BlueprintName = "RottenTomatoesTests"
+               ReferencedContainer = "container:RottenTomatoes.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "459BB86B1A83165800151851"
-            BuildableName = "InstagramDemo.app"
-            BlueprintName = "InstagramDemo"
-            ReferencedContainer = "container:InstagramDemo.xcodeproj">
+            BuildableName = "RottenTomatoes.app"
+            BlueprintName = "RottenTomatoes"
+            ReferencedContainer = "container:RottenTomatoes.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "459BB86B1A83165800151851"
-            BuildableName = "InstagramDemo.app"
-            BlueprintName = "InstagramDemo"
-            ReferencedContainer = "container:InstagramDemo.xcodeproj">
+            BuildableName = "RottenTomatoes.app"
+            BlueprintName = "RottenTomatoes"
+            ReferencedContainer = "container:RottenTomatoes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "459BB86B1A83165800151851"
-            BuildableName = "InstagramDemo.app"
-            BlueprintName = "InstagramDemo"
-            ReferencedContainer = "container:InstagramDemo.xcodeproj">
+            BuildableName = "RottenTomatoes.app"
+            BlueprintName = "RottenTomatoes"
+            ReferencedContainer = "container:RottenTomatoes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

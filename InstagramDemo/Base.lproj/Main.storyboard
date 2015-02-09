@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Movies View Controller-->
+        <!--Rotten Tomatoes-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="MoviesViewController" customModule="InstagramDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,14 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No connection lol" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0om-OV-ME6">
-                                <rect key="frame" x="0.0" y="0.0" width="134.5" height="20.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Connection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0om-OV-ME6">
+                                <rect key="frame" x="0.0" y="64" width="600" height="40"/>
+                                <color key="backgroundColor" red="0.81176471710205078" green="0.41568627953529358" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="en3-tT-dcW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.11764705926179886" green="0.11764705926179886" blue="0.11764705926179886" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="n9a-Cn-GIr">
-                                <rect key="frame" x="290" y="214" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="n9a-Cn-GIr">
+                                <rect key="frame" x="281" y="205" width="37" height="37"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="120" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QWa-tZ-WJA">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
@@ -67,19 +71,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="87%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3G-GE-kce">
-                                                            <rect key="frame" x="6.5" y="15" width="56.5" height="32.5"/>
+                                                            <rect key="frame" x="6" y="15" width="56.5" height="32.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Viewers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOv-mP-KOO">
-                                                            <rect key="frame" x="19.5" y="53" width="43.5" height="14.5"/>
+                                                            <rect key="frame" x="19" y="53" width="43.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szm-E4-fY3">
-                                                            <rect key="frame" x="6.5" y="67.5" width="56.5" height="32.5"/>
+                                                            <rect key="frame" x="6" y="67" width="56.5" height="32.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -109,7 +113,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppz-FG-Rh1">
-                                                    <rect key="frame" x="82" y="57.5" width="439" height="51.5"/>
+                                                    <rect key="frame" x="82" y="57" width="439" height="51.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -159,18 +163,21 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.19607843458652496" green="0.20784313976764679" blue="0.21568627655506134" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="0om-OV-ME6" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="8up-Ih-cwI"/>
                             <constraint firstItem="QWa-tZ-WJA" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="98z-p6-0PD"/>
                             <constraint firstItem="n9a-Cn-GIr" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-76" id="EaC-dc-z7w"/>
                             <constraint firstItem="QWa-tZ-WJA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="HDr-gv-PdI"/>
                             <constraint firstAttribute="centerX" secondItem="QWa-tZ-WJA" secondAttribute="centerX" id="JLx-2Z-OPZ"/>
                             <constraint firstItem="n9a-Cn-GIr" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="PmS-ym-Mdn"/>
                             <constraint firstItem="QWa-tZ-WJA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="fTL-cw-aMm"/>
+                            <constraint firstAttribute="centerX" secondItem="0om-OV-ME6" secondAttribute="centerX" id="lTr-fS-OHM"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="QWa-tZ-WJA" secondAttribute="bottom" id="qHS-mv-Tsd"/>
+                            <constraint firstItem="jyV-Pf-zRb" firstAttribute="bottom" secondItem="0om-OV-ME6" secondAttribute="top" id="um9-9i-0TB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cuK-ZO-mhp"/>
+                    <navigationItem key="navigationItem" title="Rotten Tomatoes" id="cuK-ZO-mhp"/>
                     <connections>
                         <outlet property="errorLabel" destination="0om-OV-ME6" id="bda-3w-xPS"/>
                         <outlet property="loadingIndicator" destination="n9a-Cn-GIr" id="QQm-36-tc0"/>
