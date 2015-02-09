@@ -4,6 +4,8 @@ This is a movies app displaying box office and top rental DVDs using the [Rotten
 
 I spent longer on it than I could have, because I wanted to find the best patterns to use in the future. Using the libraries `SwiftyJSON` and `AlamoFire` helped keep the code pretty elegant. Hopefully these will help me go faster in the future. I also needed a bit of time to adjust to the strict nature of Swift. Another big time suck was trying to get a scroll view for the detail view. I was not able to accomplish this task in IB, and I don't see the point of using IB for only some parts of an app. I have been forced to conclude that IB is unfit for its intended purpose. Next week I will be building everything programatically without Storyboards. For now I used a design that IB was able to handle, animating a constraint on a view when tapped instead of scrolling smoothly.
 
+I'm happy to say that the app is fully constraint-based and responsive (of course that's the only acceptable way to build an app ;))
+
 I also ventured into running JS in the app. I work on a lot of data processing and networking code in JS, so it's nice that it can be a portable element to include in an iOS app. For this project, I composed a color in the LAB space out of the critic's score and the viewer's score. I then used a JS library to convert back into RGB and make a UIColor. Everything worked well. You can see the results of this in the coloring of the titles on the list page. The color depends on the relationship between viewer and critic scores of the movie. In future projects, I will be investigating how to run levelDb in a JS context.
 
 Time spent: 15hrs
