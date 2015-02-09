@@ -36,7 +36,7 @@ Time spent: 15hrs
 Credits
 ---------
 * [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON)
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
-* [AlamoFire](https://github.com/Alamofire/Alamofire)
-* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
-* [ColorConvert](https://github.com/harthur/color-convert)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) (ObjC)
+* [AlamoFire](https://github.com/Alamofire/Alamofire) (Swift)
+* [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON) (Swift)
+* [ColorConvert](https://github.com/harthur/color-convert) (JS)
